@@ -1,1 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>bobthe20th // DEFINITELY A WEBSITE</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap');
 
+:root {
+  --ink: #171717;
+  --paper: #f1eddf;
+  --acid: #d7ff3f;
+  --pink: #ff5c91;
+  --blue: #626cff;
+  --line: rgba(23,23,23,.22);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Space Grotesk', sans-serif;
+  overflow-x: hidden;
+}
+.noise {
+  position: fixed; inset: 0; pointer-events: none; z-index: 10; opacity: .075;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");
+}
+a { color: inherit; text-decoration: none; }
+.topbar {
+  height: 76px; padding: 0 5vw; display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 2px solid var(--ink); position: relative; z-index: 2; background: var(--paper);
+}
+.logo, .footer-logo { font: 24px 'Archivo Black', sans-serif; letter-spacing: -1.5px; }
+.logo span, .footer-logo span { color: var(--pink); }
+nav { display: flex; gap: 34px; font: 11px 'DM Mono', monospace; letter-spacing: 1px; }
+nav a:hover, footer a:hover { color: var(--blue); text-decoration: underline; }
+.live { font: 10px 'DM Mono', monospace; }
+.live span { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #55bd58; margin-right: 7px; box-shadow: 0 0 0 4px #55bd5825; }
+.hero {
+  min-height: 690px; padding: 75px 9vw 85px; display: grid; grid-template-columns: 1fr 1fr;
+  align-items: center; position: relative; overflow: hidden;
+}
+.eyebrow, .section-label, .tag, .tiny, .caption, .side-note, .time small, .time span, .quote-credit {
+  font: 10px 'DM Mono', monospace; letter-spacing: 1.2px;
+}
+.eyebrow { background: var(--acid); display: inline-block; padding: 9px 12px; transform: rotate(-1deg); }
+h1 { font: clamp(90px, 13vw, 190px)/.76 'Archivo Black', sans-serif; letter-spacing: -12px; margin: 32px 0 25px; position: relative; z-index: 1; }
+h1 span { color: var(--pink); }
+h1 em { color: var(--blue); font-style: normal; }
+.hero-sub { max-width: 330px; font-size: 17px; line-height: 1.35; font-weight: 500; }
+.cta { display: inline-flex; gap: 35px; align-items: center; margin-top: 24px; padding: 15px 20px; background: var(--ink); color: var(--paper); font: 11px 'DM Mono', monospace; box-shadow: 5px 5px 0 var(--pink); transition: .2s; }
+.cta:hover { transform: translate(3px,3px); box-shadow: 2px 2px 0 var(--pink); }
+.hero-art { height: 480px; position: relative; display: grid; place-items: center; }
+.sun { width: 310px; height: 310px; border-radius: 50%; background: var(--acid); position: absolute; right: 9%; top: 12%; }
+.orbit { position: absolute; border: 2px solid var(--ink); border-radius: 50%; transform: rotate(-27deg); }
+.orbit-one { width: 460px; height: 170px; }
+.orbit-two { width: 390px; height: 250px; transform: rotate(43deg); border-style: dashed; }
+.big-20 { font: 230px/.8 'Archivo Black', sans-serif; color: var(--pink); -webkit-text-stroke: 3px var(--ink); text-shadow: 9px 9px 0 var(--ink); transform: rotate(-12deg); z-index: 1; }
+.pixel-person { position: absolute; z-index: 2; right: 21%; bottom: 8%; width: 76px; height: 105px; background: var(--blue); border: 4px solid var(--ink); color: var(--acid); display: grid; place-items: center; font: 52px 'Archivo Black'; box-shadow: 7px 7px 0 var(--ink); transform: rotate(8deg); }
+.sticker { position: absolute; z-index: 3; padding: 13px; border: 2px solid var(--ink); font: 13px/1.05 'Archivo Black'; text-align: center; box-shadow: 4px 4px 0 var(--ink); }
+.sticker-a { background: var(--paper); top: 8%; left: 5%; transform: rotate(-12deg); }
+.sticker-b { background: var(--pink); right: 0; top: 22%; transform: rotate(10deg); }
+.caption { position: absolute; bottom: 0; right: 0; }
+.side-note { position: absolute; bottom: 25px; left: 5vw; line-height: 1.7; color: #777; }
+.ticker { overflow: hidden; background: var(--acid); border-block: 2px solid var(--ink); white-space: nowrap; padding: 14px 0; font: 16px 'Archivo Black'; }
+.ticker div { width: max-content; animation: scroll 22s linear infinite; }
+@keyframes scroll { to { transform: translateX(-50%); } }
+.section { padding: 110px 10vw; }
+.intro { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; }
+.section-label { color: #777; padding-top: 12px; }
+h2 { font: clamp(42px, 6vw, 80px)/.9 'Archivo Black'; letter-spacing: -4px; margin: 0 0 35px; }
+h2 span { color: var(--blue); }
+.intro-text { max-width: 680px; font-size: 22px; line-height: 1.45; }
+.tiny { color: #777; font-size: 9px; margin-top: 30px; }
+.runs { background: #e5e0d1; border-block: 2px solid var(--ink); }
+.runs-heading { display: flex; justify-content: space-between; align-items: start; margin: 50px 0 55px; }
+.runs-heading h2 { font-size: clamp(60px, 9vw, 120px); margin: 0; }
+.runs-heading h2 span { color: var(--pink); }
+.scribble { font: 14px/1.2 'DM Mono', monospace; color: var(--blue); transform: rotate(8deg); border: 2px dashed var(--blue); padding: 12px; }
+.run-card { display: grid; grid-template-columns: 70px 1fr 190px; gap: 25px; padding: 28px 0; border-top: 2px solid var(--ink); align-items: center; }
+.run-card:last-child { border-bottom: 2px solid var(--ink); }
+.run-number { font: 40px 'Archivo Black'; color: var(--pink); }
+.tag { display: inline-block; background: var(--acid); padding: 6px 8px; font-size: 9px; }
+.run-info h3 { font: 24px 'Archivo Black'; margin: 12px 0 7px; }
+.run-info p { max-width: 570px; margin: 0; color: #555; line-height: 1.5; }
+.time { text-align: right; display: flex; flex-direction: column; gap: 4px; }
+.time strong { font: 54px/.95 'Archivo Black'; color: var(--blue); }
+.time small, .time span { font-size: 9px; }
+.quote-section { background: var(--blue); color: var(--paper); padding: 100px 12vw; position: relative; overflow: hidden; }
+.quote-mark { font: 150px/.5 Georgia; color: var(--acid); }
+blockquote { font: clamp(38px, 7vw, 90px)/.95 'Archivo Black'; letter-spacing: -3px; margin: 25px 0; position: relative; z-index: 1; }
+.quote-credit { color: var(--acid); }
+.tomb-stamp { position: absolute; right: 10%; bottom: 14%; border: 3px solid var(--acid); color: var(--acid); padding: 15px; font: 20px/1 'Archivo Black'; transform: rotate(12deg); opacity: .8; }
+.stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 55px; }
+.stat { min-height: 170px; background: var(--acid); border: 2px solid var(--ink); padding: 20px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 5px 5px 0 var(--ink); }
+.stat:nth-child(2) { background: var(--pink); transform: rotate(1deg); }
+.stat:nth-child(3) { background: var(--blue); color: white; transform: rotate(-1deg); }
+.stat:nth-child(4) { background: var(--ink); color: var(--acid); }
+.stat strong { font: clamp(38px, 5vw, 65px) 'Archivo Black'; }
+.stat span { font: 9px 'DM Mono', monospace; }
+footer { padding: 35px 5vw; background: var(--ink); color: var(--paper); display: flex; align-items: center; justify-content: space-between; gap: 20px; font: 9px 'DM Mono', monospace; letter-spacing: .6px; }
+.footer-logo { font-size: 26px; }
+
+@media (max-width: 760px) {
+  .topbar { height: auto; min-height: 70px; flex-wrap: wrap; gap: 12px; padding: 18px 5vw; }
+  nav { order: 3; width: 100%; justify-content: space-between; }
+  .live { font-size: 8px; }
+  .hero { grid-template-columns: 1fr; padding: 65px 8vw 90px; }
+  h1 { font-size: 27vw; letter-spacing: -7px; }
+  .hero-art { height: 360px; margin-top: 20px; }
+  .sun { width: 230px; height: 230px; }
+  .big-20 { font-size: 175px; }
+  .orbit-one { width: 330px; height: 130px; }
+  .orbit-two { width: 300px; height: 190px; }
+  .side-note { font-size: 8px; }
+  .section { padding: 75px 8vw; }
+  .intro { grid-template-columns: 1fr; gap: 25px; }
+  .intro-text { font-size: 18px; }
+  .runs-heading { margin: 35px 0; }
+  .scribble { font-size: 10px; }
+  .run-card { grid-template-columns: 42px 1fr; gap: 15px; }
+  .run-number { font-size: 28px; }
+  .run-info h3 { font-size: 18px; }
+  .time { grid-column: 2; text-align: left; flex-direction: row; align-items: baseline; flex-wrap: wrap; gap: 10px; }
+  .time strong { font-size: 38px; }
+  .quote-section { padding: 75px 8vw; }
+  .tomb-stamp { right: 5%; bottom: 5%; font-size: 12px; }
+  .stat-grid { grid-template-columns: repeat(2, 1fr); }
+  .stat { min-height: 130px; }
+  footer { flex-wrap: wrap; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .ticker div { animation: none; }
+}
+
+</style>
+</head>
+<body>
+  <div class="noise"></div>
+  <header class="topbar">
+    <a class="logo" href="#">BOB<span>THE</span>20TH.exe</a>
+    <nav>
+      <a href="#about">ABOUT</a>
+      <a href="#runs">RUNS</a>
+      <a href="#lore">LORE</a>
+    </nav>
+    <div class="live"><span></span> CURRENTLY GAMING (PROBABLY)</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">THE INTERNET'S MOST QUESTIONABLE SPEEDRUN FANPAGE</div>
+        <h1>BOB<br><span>THE</span><br><em>20TH</em></h1>
+        <p class="hero-sub">One gamer. Several ancient tombs. An unreasonable amount of commitment.</p>
+        <a class="cta" href="#runs">VIEW THE RUNS <b>↘</b></a>
+      </div>
+      <div class="hero-art">
+        <div class="sun"></div>
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="big-20">20</div>
+        <div class="sticker sticker-a">100%<br>REAL<br>GAMER</div>
+        <div class="sticker sticker-b">NO<br>GRASS<br>TOUCHING</div>
+        <div class="pixel-person">B</div>
+        <div class="caption">FIG. 01 — THE SPECIMEN</div>
+      </div>
+      <div class="side-note">EST. SOME TIME AGO<br>POWERED BY CAFFEINE & QUESTIONABLE ROUTES</div>
+    </section>
+
+    <section class="ticker" aria-label="Scrolling text">
+      <div>FRAME PERFECT? &nbsp; MAYBE. &nbsp; SLEEP SCHEDULE? &nbsp; NEVER HEARD OF IT. &nbsp; TOMB RAIDER? &nbsp; ABSOLUTELY. &nbsp; </div>
+    </section>
+
+    <section class="intro section" id="about">
+      <div class="section-label">01 / WHO IS THIS GUY</div>
+      <div>
+        <h2>NOT A TOUR GUIDE.<br><span>A TOMB DELETER.</span></h2>
+        <p class="intro-text">bobthe20th is a speedrunner known around these extremely official-looking premises for taking Tomb Raider games and making Lara Croft move through them at speeds that probably concern archaeologists.</p>
+        <p class="tiny">DISCLAIMER: THIS WEBSITE HAS THE ENERGY OF A GROUP PROJECT THAT STARTED AT 2:13 AM.</p>
+      </div>
+    </section>
+
+    <section class="runs section" id="runs">
+      <div class="section-label">02 / THE DIGITAL ATHLETICS DEPARTMENT</div>
+      <div class="runs-heading">
+        <h2>THE RUN<br><span>ARCHIVE™</span></h2>
+        <div class="scribble">VERY FAST<br>VERY SERIOUS<br>(NOT REALLY)</div>
+      </div>
+      <div class="run-card featured">
+        <div class="run-number">01</div>
+        <div class="run-info">
+          <div class="tag">PERSONAL HIGHLIGHT</div>
+          <h3>TOMB RAIDER: ANNIVERSARY</h3>
+          <p>Any% No Bug Jump — a run for people who think the normal way of playing is taking too long.</p>
+        </div>
+        <div class="time">
+          <small>REPORTED TIME</small>
+          <strong>20:15</strong>
+          <span>THAT'S QUICK.</span>
+        </div>
+      </div>
+      <div class="run-card">
+        <div class="run-number">02</div>
+        <div class="run-info">
+          <div class="tag">THE UNDERWORLD FILES</div>
+          <h3>TOMB RAIDER: UNDERWORLD</h3>
+          <p>Individual levels, tiny time saves, and the eternal search for a slightly faster way to fall down.</p>
+        </div>
+        <div class="time"><small>STATUS</small><strong>ILs</strong><span>THE GRIND CONTINUES</span></div>
+      </div>
+      <div class="run-card">
+        <div class="run-number">03</div>
+        <div class="run-info">
+          <div class="tag">THE WIDER UNIVERSE</div>
+          <h3>MORE TOMB RAIDER</h3>
+          <p>Because apparently one ancient civilisation full of traps was not enough.</p>
+        </div>
+        <div class="time"><small>MODE</small><strong>GO</strong><span>FASTER, CROFT</span></div>
+      </div>
+    </section>
+
+    <section class="quote-section" id="lore">
+      <div class="quote-mark">“</div>
+      <blockquote>THE REAL TREASURE<br>WAS THE SECONDS<br>WE SAVED ALONG THE WAY.</blockquote>
+      <div class="quote-credit">— DEFINITELY BOB, PROBABLY</div>
+      <div class="tomb-stamp">ANCIENT<br>GAMING<br>TECHNOLOGY</div>
+    </section>
+
+    <section class="stats section">
+      <div class="section-label">03 / COMPLETELY SCIENTIFIC METRICS</div>
+      <div class="stat-grid">
+        <div class="stat"><strong>20</strong><span>THE NUMBER</span></div>
+        <div class="stat"><strong>∞</strong><span>ATTEMPTS (EST.)</span></div>
+        <div class="stat"><strong>0</strong><span>ANCIENT TOMBS LEFT UNRAIDED*</span></div>
+        <div class="stat"><strong>100%</strong><span>VIBES-BASED WEB DESIGN</span></div>
+      </div>
+      <p class="tiny">*FIGURATIVE. PLEASE DO NOT CONTACT THE BRITISH MUSEUM.</p>
+    </section>
+
+    <footer>
+      <div class="footer-logo">BOB<span>THE</span>20TH</div>
+      <div>MADE WITH TOO MUCH CSS AND NOT ENOUGH SUPERVISION.</div>
+      <a href="#">BACK TO TOP ↑</a>
+    </footer>
+  </main>
+</body>
+</html>
